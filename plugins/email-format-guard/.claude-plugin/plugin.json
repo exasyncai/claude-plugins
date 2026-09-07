@@ -1,0 +1,13 @@
+{
+  "name": "email-format-guard",
+  "version": "0.1.0",
+  "description": "Deterministic pre-send gate for customer-facing email: no long dashes, no formatting in the body, no unresolved placeholders, no team salutations, no double sign-offs. Scan mode finds violations hard-wired into pipeline code.",
+  "author": {
+    "name": "Exasync OU",
+    "url": "https://exasync.ai"
+  },
+  "homepage": "https://github.com/exasync/claude-plugins/tree/main/plugins/email-format-guard",
+  "repository": "https://github.com/exasync/claude-plugins",
+  "license": "MIT",
+  "keywords": ["email", "outreach", "quality-gate", "plain-text", "deliverability"]
+}

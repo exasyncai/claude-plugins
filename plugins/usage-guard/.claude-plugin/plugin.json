@@ -1,0 +1,13 @@
+{
+  "name": "usage-guard",
+  "version": "0.1.0",
+  "description": "Hook that shows your subscription usage in every turn and denies expensive commands once a threshold is reached, so a long-running session hands over cleanly instead of hitting the wall.",
+  "author": {
+    "name": "Exasync OU",
+    "url": "https://exasync.ai"
+  },
+  "homepage": "https://github.com/exasync/claude-plugins/tree/main/plugins/usage-guard",
+  "repository": "https://github.com/exasync/claude-plugins",
+  "license": "MIT",
+  "keywords": ["hooks", "usage", "limits", "guardrail", "session"]
+}

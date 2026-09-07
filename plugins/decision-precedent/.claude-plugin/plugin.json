@@ -1,0 +1,13 @@
+{
+  "name": "decision-precedent",
+  "version": "0.1.0",
+  "description": "Never ask the same question twice. Search stored decisions before escalating to a human, store the answer with rationale, and log whether a precedent was applied. Local JSON store, optional custom backend.",
+  "author": {
+    "name": "Exasync OU",
+    "url": "https://exasync.ai"
+  },
+  "homepage": "https://github.com/exasync/claude-plugins/tree/main/plugins/decision-precedent",
+  "repository": "https://github.com/exasync/claude-plugins",
+  "license": "MIT",
+  "keywords": ["decisions", "memory", "escalation", "autonomy", "precedent"]
+}

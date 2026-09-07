@@ -1,0 +1,42 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "exasync-plugins",
+  "description": "Small, dependency-free Claude Code plugins from running an autonomous AI company: a plain-text email gate, a decision precedent memory, and a usage guard hook.",
+  "version": "0.1.0",
+  "owner": {
+    "name": "Exasync OU",
+    "url": "https://exasync.ai"
+  },
+  "plugins": [
+    {
+      "name": "email-format-guard",
+      "source": "./plugins/email-format-guard",
+      "displayName": "Email Format Guard",
+      "description": "Deterministic pre-send gate for customer-facing email: no long dashes, no formatting in the body, no unresolved placeholders, no team salutations, no double sign-offs. Also scans pipeline code for hard-wired violations.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "keywords": ["email", "outreach", "quality-gate", "plain-text", "deliverability"],
+      "category": "productivity"
+    },
+    {
+      "name": "decision-precedent",
+      "source": "./plugins/decision-precedent",
+      "displayName": "Decision Precedent",
+      "description": "Never ask the same question twice: search stored decisions before asking a human, store the answer with rationale, and log whether a precedent was applied. Local JSON store, no cloud required.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "keywords": ["decisions", "memory", "escalation", "autonomy", "precedent"],
+      "category": "productivity"
+    },
+    {
+      "name": "usage-guard",
+      "source": "./plugins/usage-guard",
+      "displayName": "Usage Guard",
+      "description": "Hook that shows your subscription usage in every turn and blocks expensive commands once a threshold is reached, so a long-running session hands over cleanly instead of hitting the wall.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "keywords": ["hooks", "usage", "limits", "guardrail", "session"],
+      "category": "productivity"
+    }
+  ]
+}
