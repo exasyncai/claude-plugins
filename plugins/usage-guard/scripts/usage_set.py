@@ -52,7 +52,7 @@ def main(argv=None) -> int:
                      ("session_reset_at", args.session_reset), ("weekly_reset_at", args.weekly_reset),
                      ("account", args.account)):
         if val is not None:
-            status[key] = val
+            status[key] = int(val) if isinstance(val, float) and val.is_integer() else val
     if "session_pct" not in status:
         ap.error("nothing to write: pass --session or --from-json")
     status["fetched_at"] = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()

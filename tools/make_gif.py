@@ -13,6 +13,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -57,9 +58,16 @@ def frame(lines, cursor=True):
     return img
 
 
+PRETTY = {}  # real temp paths -> what the demo shows instead
+
+
 def run(cmd, cwd, env):
-    proc = subprocess.run(cmd, cwd=cwd, env={**os.environ, **env}, capture_output=True, text=True, shell=False)
+    proc = subprocess.run(cmd, cwd=cwd, env={**os.environ, "PYTHONIOENCODING": "utf-8", **env},
+                          capture_output=True, text=True, encoding="utf-8", errors="replace", shell=False)
     out = (proc.stdout + proc.stderr).rstrip("\n")
+    for real, nice in PRETTY.items():
+        for variant in (real, real.replace("\\", "\\\\"), real.replace("\\", "/")):
+            out = out.replace(variant, nice)
     return out, proc.returncode
 
 
@@ -78,7 +86,8 @@ def render(name, steps):
         for l in out.splitlines()[:16]:
             kind = "ok" if l.startswith(("FORMAT GATE: clean", "USAGE", "=== ")) or '"ok": true' in l else \
                    "err" if l.startswith(("FORMAT GATE:", "  - ")) or "deny" in l else "out"
-            lines.append((kind, l[:118]))
+            for part in textwrap.wrap(l, 118, subsequent_indent="    ") or [""]:
+                lines.append((kind, part))
         frames.append(frame(lines))
         durations.append(2600)
     frames.append(frame(lines, cursor=False))
@@ -103,9 +112,13 @@ def demos():
     ug = os.path.join(ROOT, "plugins", "usage-guard", "scripts")
     store_env = {"DECISION_STORE": os.path.join(tmp, "decisions.json")}
     status_env = {"USAGE_GUARD_STATUS": os.path.join(tmp, "status.json"), "USAGE_GUARD_CONFIG": os.path.join(tmp, "none")}
-    hook_in = os.path.join(tmp, "hook.json")
+    PRETTY[os.path.join(tmp, "decisions.json")] = ".claude/decisions.json"
+    PRETTY[os.path.join(tmp, "status.json")] = "~/.claude/usage-guard/status.json"
+    counter = [0]
 
     def hook(payload, shown):
+        counter[0] += 1
+        hook_in = os.path.join(tmp, f"hook{counter[0]}.json")
         with open(hook_in, "w", encoding="utf-8") as fh:
             json.dump(payload, fh)
         return ([PY, "-c", f"import subprocess,sys;sys.exit(subprocess.run([sys.executable,r'{ug}/usage_hook.py'],"
