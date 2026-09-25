@@ -9,7 +9,7 @@ Why it exists: our outreach and customer pipelines produced email that was corre
 ## Install
 
 ```
-/plugin marketplace add exasync/claude-plugins
+/plugin marketplace add ExasyncOU/claude-plugins
 /plugin install email-format-guard@exasync-plugins
 ```
 
@@ -31,7 +31,7 @@ What is checked:
 
 | Rule | Example that fails |
 |---|---|
-| No em or en dash | `we deliver — fast` |
+| No em or en dash | `we deliver` followed by U+2014 or U+2013 |
 | No formatting in the body | `**Offer**`, `- item`, `<b>`, `# Title`, `style=` |
 | No unresolved placeholder | `{{first_name}}`, `[Company]` |
 | No team salutation | `Hi all,`, `Hello team,` |

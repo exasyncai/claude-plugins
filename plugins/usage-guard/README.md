@@ -9,7 +9,7 @@ Why it exists: we run several sessions in parallel on one subscription. On a Tue
 ## Install
 
 ```
-/plugin marketplace add exasync/claude-plugins
+/plugin marketplace add ExasyncOU/claude-plugins
 /plugin install usage-guard@exasync-plugins
 ```
 

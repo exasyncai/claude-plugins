@@ -1,0 +1,33 @@
+name: Feature request
+description: Propose a rule, an option or a new check
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: Plugin
+      options:
+        - email-format-guard
+        - decision-precedent
+        - usage-guard
+        - new plugin
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: The incident behind it
+      description: What went wrong that this feature would have prevented? Rules here are born from incidents, so this is the most useful part.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered

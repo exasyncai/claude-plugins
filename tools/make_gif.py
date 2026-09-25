@@ -102,7 +102,7 @@ def demos():
     tmp = tempfile.mkdtemp(prefix="plugin-demo-")
     draft = os.path.join(tmp, "draft.txt")
     with open(draft, "w", encoding="utf-8") as fh:
-        fh.write("Hi all,\n\n**Quick update** on the pilot — we deliver by Friday.\n- setup done\n"
+        fh.write("Hi all,\n\n**Quick update** on the pilot \u2014 we deliver by Friday.\n- setup done\n"
                  "Your contact: {{first_name}}\n\nBest regards\nBodo\n\nKind regards\nBodo\n")
     clean = os.path.join(tmp, "clean.txt")
     with open(clean, "w", encoding="utf-8") as fh:

@@ -6,8 +6,8 @@
     "name": "Exasync OU",
     "url": "https://exasync.ai"
   },
-  "homepage": "https://github.com/exasync/claude-plugins/tree/main/plugins/decision-precedent",
-  "repository": "https://github.com/exasync/claude-plugins",
+  "homepage": "https://github.com/ExasyncOU/claude-plugins/tree/main/plugins/decision-precedent",
+  "repository": "https://github.com/ExasyncOU/claude-plugins",
   "license": "MIT",
   "keywords": ["decisions", "memory", "escalation", "autonomy", "precedent"]
 }

@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Plugin tests (${{ matrix.os }}, py${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install --quiet pytest
+      - run: python -m pytest plugins -q
+
+  manifests:
+    name: Manifest sanity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Parse marketplace and plugin manifests, check sources exist
+        run: |
+          python - <<'EOF'
+          import json, pathlib, sys
+          root = pathlib.Path(".")
+          mp = json.loads((root / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
+          bad = 0
+          for p in mp["plugins"]:
+              src = root / p["source"]
+              pj = src / ".claude-plugin" / "plugin.json"
+              if not pj.is_file():
+                  print("missing", pj); bad += 1; continue
+              meta = json.loads(pj.read_text(encoding="utf-8"))
+              if meta["name"] != p["name"]:
+                  print("name mismatch", p["name"], meta["name"]); bad += 1
+              print("ok", p["name"], meta["version"])
+          sys.exit(1 if bad else 0)
+          EOF
+
+  gitleaks:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

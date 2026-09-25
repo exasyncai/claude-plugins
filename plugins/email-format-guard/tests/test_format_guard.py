@@ -25,7 +25,7 @@ def test_clean_body_passes():
 
 
 def test_em_dash_is_flagged_everywhere_even_in_signature():
-    body = CLEAN.replace("Tallinn", "Tallinn — Estonia")
+    body = CLEAN.replace("Tallinn", "Tallinn \u2014 Estonia")
     findings = fg.check_text(body)
     assert len(findings) == 1 and "em dash" in findings[0]
 
@@ -56,14 +56,14 @@ def test_double_signoff():
 
 def test_scan_dir_finds_template_dash_and_respects_pragma(tmp_path):
     (tmp_path / "mail.py").write_text(
-        'subject = "Offer — today"\nbody = "<b>hi</b> " + name  # format-guard-ok\n', encoding="utf-8")
-    (tmp_path / "unrelated.py").write_text('x = "a — b"\n', encoding="utf-8")
+        'subject = "Offer \u2014 today"\nbody = "<b>hi</b> " + name  # format-guard-ok\n', encoding="utf-8")
+    (tmp_path / "unrelated.py").write_text('x = "a \u2014 b"\n', encoding="utf-8")
     findings = fg.scan_dir(str(tmp_path))
     assert len(findings) == 1 and "mail.py:1" in findings[0]
 
 
 def test_cli_exit_codes(capsys):
     assert fg.main(["check", "--text", "Hi Anna,\n\nok\n\nBest regards\nBodo"]) == 0
-    assert fg.main(["check", "--text", "Hi Anna – quick one"]) == 1
+    assert fg.main(["check", "--text", "Hi Anna \u2013 quick one"]) == 1
     out = capsys.readouterr().out
     assert "clean" in out and "1 finding" in out

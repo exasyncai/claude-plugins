@@ -11,7 +11,7 @@ import os
 import re
 import sys
 
-DASHES = {"—": "em dash", "–": "en dash"}  # format-guard-ok: detection map
+DASHES = {"\u2014": "em dash", "\u2013": "en dash"}  # format-guard-ok: detection map
 HTML_TAGS = re.compile(r"<\s*(b|strong|ul|ol|li|h[1-6]|table|em|i)\b|style\s*=", re.I)
 MD_BOLD = re.compile(r"\*\*[^*]+\*\*")
 MD_BULLET = re.compile(r"^\s*[-*•]\s+\S")
