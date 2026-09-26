@@ -9,7 +9,7 @@ Why it exists: in a company run by agents, the scarce resource is the human's at
 ## Install
 
 ```
-/plugin marketplace add ExasyncOU/claude-plugins
+/plugin marketplace add exasyncai/claude-plugins
 /plugin install decision-precedent@exasync-plugins
 ```
 

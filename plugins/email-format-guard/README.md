@@ -9,7 +9,7 @@ Why it exists: our outreach and customer pipelines produced email that was corre
 ## Install
 
 ```
-/plugin marketplace add ExasyncOU/claude-plugins
+/plugin marketplace add exasyncai/claude-plugins
 /plugin install email-format-guard@exasync-plugins
 ```
 

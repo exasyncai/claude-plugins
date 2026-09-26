@@ -4,7 +4,7 @@ Form: https://platform.claude.com/plugins/submit (filled in by hand, one submiss
 
 ## Marketplace
 
-- Repository URL: https://github.com/ExasyncOU/claude-plugins
+- Repository URL: https://github.com/exasyncai/claude-plugins
 - Marketplace name: `exasync-plugins`
 - Owner: Exasync OU, https://exasync.ai
 - Contact: security@exasync.ai (security) and the issue tracker of the repository (everything else)
@@ -14,7 +14,7 @@ Form: https://platform.claude.com/plugins/submit (filled in by hand, one submiss
 
 ## Plugin: email-format-guard
 
-- Source: https://github.com/ExasyncOU/claude-plugins/tree/main/plugins/email-format-guard
+- Source: https://github.com/exasyncai/claude-plugins/tree/main/plugins/email-format-guard
 - Category: productivity
 - One line: Deterministic pre-send gate for customer-facing email.
 - Description:
@@ -23,7 +23,7 @@ Form: https://platform.claude.com/plugins/submit (filled in by hand, one submiss
 
 ## Plugin: decision-precedent
 
-- Source: https://github.com/ExasyncOU/claude-plugins/tree/main/plugins/decision-precedent
+- Source: https://github.com/exasyncai/claude-plugins/tree/main/plugins/decision-precedent
 - Category: productivity
 - One line: Never ask the human the same question twice.
 - Description:
@@ -32,7 +32,7 @@ Form: https://platform.claude.com/plugins/submit (filled in by hand, one submiss
 
 ## Plugin: usage-guard
 
-- Source: https://github.com/ExasyncOU/claude-plugins/tree/main/plugins/usage-guard
+- Source: https://github.com/exasyncai/claude-plugins/tree/main/plugins/usage-guard
 - Category: productivity
 - One line: Show subscription usage every turn and stop expensive commands before the limit.
 - Description:

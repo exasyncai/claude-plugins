@@ -6,8 +6,8 @@
     "name": "Exasync OU",
     "url": "https://exasync.ai"
   },
-  "homepage": "https://github.com/ExasyncOU/claude-plugins/tree/main/plugins/usage-guard",
-  "repository": "https://github.com/ExasyncOU/claude-plugins",
+  "homepage": "https://github.com/exasyncai/claude-plugins/tree/main/plugins/usage-guard",
+  "repository": "https://github.com/exasyncai/claude-plugins",
   "license": "MIT",
   "keywords": ["hooks", "usage", "limits", "guardrail", "session"]
 }

@@ -13,7 +13,7 @@ Three small, dependency-free Claude Code plugins that stop an agent from sending
 One command inside Claude Code adds the marketplace, one more per plugin installs it. Same on Windows, macOS and Linux:
 
 ```
-/plugin marketplace add ExasyncOU/claude-plugins
+/plugin marketplace add exasyncai/claude-plugins
 /plugin install email-format-guard@exasync-plugins
 /plugin install decision-precedent@exasync-plugins
 /plugin install usage-guard@exasync-plugins
@@ -22,7 +22,7 @@ One command inside Claude Code adds the marketplace, one more per plugin install
 From a terminal instead:
 
 ```
-claude plugin marketplace add ExasyncOU/claude-plugins
+claude plugin marketplace add exasyncai/claude-plugins
 claude plugin install email-format-guard@exasync-plugins
 ```
 
