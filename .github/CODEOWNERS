@@ -1,0 +1,4 @@
+# Default owner for everything. Workflow and installer changes always get a maintainer review.
+*                       @exasyncai
+/.github/workflows/     @exasyncai
+/SECURITY.md            @exasyncai
