@@ -7,7 +7,7 @@ Form: https://platform.claude.com/plugins/submit (filled in by hand, one submiss
 - Repository URL: https://github.com/exasyncai/claude-plugins
 - Marketplace name: `exasync-plugins`
 - Owner: Exasync OU, https://exasync.ai
-- Contact: security@exasync.ai (security) and the issue tracker of the repository (everything else)
+- Contact: operations@exasync.ai (security, with "security" in the subject; or GitHub private vulnerability reporting) and the issue tracker of the repository (everything else)
 - License: MIT
 - Short description (under 200 characters):
   Small, dependency-free Claude Code plugins from running an autonomous AI company: a plain-text email gate, a decision precedent memory, and a usage guard hook.
