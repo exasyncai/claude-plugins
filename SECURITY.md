@@ -8,7 +8,7 @@ Only the latest release on the `main` branch receives fixes.
 
 Please do not open a public issue for security problems.
 
-Use GitHub's "Report a vulnerability" on this repository (Security tab, private to the maintainers), or send a report to operations@exasync.ai with "security" in the subject. Include:
+Use GitHub's "Report a vulnerability" on this repository (Security tab, private to the maintainers), or send a report to security@exasync.ai. Include:
 
 - the plugin and version (see `plugin.json`)
 - steps to reproduce
